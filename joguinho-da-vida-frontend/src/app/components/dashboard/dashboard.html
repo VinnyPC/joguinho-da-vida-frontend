@@ -1,3 +1,39 @@
-<p>Dados do usuario</p>
-<pre>{{user | json}}</pre>
-<button (click)="logout()">Logout</button>
+<app-header></app-header>
+
+<section class="info-section">
+  <div class="user-status">
+    <div class="nivel-container">
+      <div class="nivel-info">
+        <div style="display: flex; flex-direction: column">
+          <span style="font-size: 36px">Nível</span>
+          <span style="font-size: 128px">5</span>
+        </div>
+        <div
+          style="
+            display: flex;
+            flex-direction: column;
+            font-size: 28px;
+            justify-content: space-around;
+          "
+        >
+          <span>Missões ativas: 100</span>
+          <span>Missões concluídas: 250</span>
+          <span>XP: 599/1000</span>
+        </div>
+      </div>
+
+      <mat-progress-bar
+        mode="determinate"
+        value="100"
+        style="margin-top: 35px; width: 100%"
+      ></mat-progress-bar>
+    </div>
+  </div>
+  <div class="user-opcoes">
+    <a href="#">Missões</a>
+    <hr />
+    <a href="#">Perfil</a>
+    <hr />
+    <a href="#">Loja</a>
+  </div>
+</section>

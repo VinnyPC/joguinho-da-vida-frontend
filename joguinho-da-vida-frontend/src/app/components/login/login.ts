@@ -3,13 +3,14 @@ import { Component, inject, Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { OidcSecurityService } from 'angular-auth-oidc-client';
 import { UserService } from '../../services/user-service';
+import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 @Injectable({
   providedIn: 'root', // ✅ disponibiliza globalmente
 })
 
 @Component({
   selector: 'app-login',
-  imports: [CommonModule],
+  imports: [CommonModule, MatSlideToggleModule,],
   templateUrl: './login.html',
   styleUrl: './login.css'
 })
