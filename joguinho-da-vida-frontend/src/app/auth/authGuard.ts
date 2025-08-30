@@ -9,12 +9,8 @@ export const authGuard: CanActivateFn = () => {
 
     return oidcSecurityService.isAuthenticated$.pipe(
         take(1),
-        map((isAuthenticated) => {
-            if (!isAuthenticated) {
-                router.navigate(['/login']); // redireciona para login se não autenticado
-                return false;
-            }
-            return true;
-        })
+        map(({ isAuthenticated }) =>
+            isAuthenticated ? true : router.createUrlTree(['/login'])
+        )
     );
 };
