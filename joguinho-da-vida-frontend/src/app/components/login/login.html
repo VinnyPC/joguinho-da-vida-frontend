@@ -1,9 +1,8 @@
-<ng-template #noAuth>
-  <button (click)="login()">Login</button>
-  <hr />
-</ng-template>
 
-<div *ngIf="isAuthenticated; else noAuth">
+  <button (click)="login()">Login</button>
+
+
+<!-- <div *ngIf="isAuthenticated; else noAuth">
 
   <br />
 
@@ -14,6 +13,6 @@
   <pre>{{ userData$ | async | json }}</pre>
 
   <br />
-</div>
+</div> -->
 
 <button (click)="logout()">Logout</button>
