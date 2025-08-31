@@ -11,7 +11,7 @@
     justify-content: space-between;
 }
 
-.user-opcoes a{
+.user-opcoes a {
     text-decoration: none;
     color: #203F61;
     font-size: 36px;
@@ -40,4 +40,103 @@
     margin-left: auto;
     margin-right: auto;
     border: 1px solid #6FCCE8;
+}
+
+.missoes-section {
+    margin: 20px 10px 0 10px;
+}
+
+.missoes-carousel {}
+
+.missao-card-content img {
+    width: 50px;
+    height: 50px;
+    margin-bottom: 0px;
+
+}
+
+.missao-card-content {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-left: 15px;
+    margin-bottom: 15px;
+}
+
+.missao-card {
+    background-color: #FFF6DB;
+    border-radius: 15px;
+    /* height: 30vh; */
+    width: 15vw;
+    color: #203F61;
+}
+
+.missao-card-header {
+    background-color: #FECE67;
+    border-radius: 15px 15px 0 0;
+    text-align: center;
+
+
+}
+
+.recompensa-container {
+    display: flex;
+    flex-direction: column;
+    align-items: baseline;
+}
+.recompensa-container span {
+    font-size: 25px;
+    font-weight: bold;
+}
+
+.missao-card-header h1 {
+    margin-top: 0px;
+    border-radius: 15px;
+    font-size: 32px;
+}
+
+.missao-card-body {
+    margin-left: 15px;
+}
+
+.missao-card-body h2 {
+    font-size: 25px;
+}
+
+.missao-card-body p {
+    font-size: 16px;
+}
+
+.mission-card-validade {
+    margin-left: 15px;
+    display: flex;
+    align-items: center;
+}
+.validade-data-container{
+    display: flex;
+    flex-direction: column;
+    margin: 15px;
+}
+
+.missao-card-actions {
+    margin-top: 25px;
+    margin-left: 0px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin-bottom: 25px;
+}
+.btn-aceitar-missao {
+    background-color: #4CAF50;
+    border-radius: 15px;
+}
+.btn-recusar-missao{
+    background-color: #FFEB3B;
+    border-radius: 15px;
+}
+.btn-aceitar-missao:hover {
+    background-color: #45a049;
+}
+.btn-recusar-missao:hover{
+    background-color: #fdd835;
 }

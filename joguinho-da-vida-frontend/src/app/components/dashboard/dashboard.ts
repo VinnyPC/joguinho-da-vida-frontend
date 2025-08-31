@@ -4,10 +4,12 @@ import { UserService } from '../../services/user-service';
 import { CommonModule } from '@angular/common';
 import { Header } from "../shared/header/header";
 import { MatProgressBarModule } from '@angular/material/progress-bar';
+import { MatButtonModule } from '@angular/material/button';
+import { MatIconModule } from '@angular/material/icon';
 
 @Component({
   selector: 'app-dashboard',
-  imports: [CommonModule, Header, MatProgressBarModule],
+  imports: [CommonModule, Header, MatProgressBarModule, MatButtonModule, MatIconModule],
   templateUrl: './dashboard.html',
   styleUrl: './dashboard.css'
 })
