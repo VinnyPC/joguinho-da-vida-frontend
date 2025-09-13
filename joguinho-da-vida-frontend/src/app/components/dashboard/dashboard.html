@@ -25,22 +25,28 @@
       <mat-progress-bar
         mode="determinate"
         value="50"
-        style="margin-top: 10px; width: 100%"
+        style="margin-top: 10px; width: 100%; height: 15px"
       ></mat-progress-bar>
     </div>
   </div>
   <div class="user-opcoes">
-    <a href="#">Missões</a>
-    <hr />
-    <a href="#">Perfil</a>
-    <hr />
-    <a href="#">Loja</a>
+    <div><span class="material-symbols-outlined"> strategy </span><a href="#">Missões</a></div>
+     <hr />
+    <div> <span class="material-symbols-outlined"> person </span><a href="#">Perfil</a></div>
+        <hr />
+    <div> <span class="material-symbols-outlined"> storefront </span><a href="#">Loja</a></div>
+    
+   
+   
+
+   
   </div>
 </section>
 
 <section class="missoes-section">
+  <h1 style="color: #203f61">Missões</h1>
   <div class="missoes-carousel">
-    <div class="missao-card" *ngFor="let missao of [1, 2, 3, 4, 5]">
+    <div class="missao-card" *ngFor="let missao of [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]">
       <div class="missao-card-header">
         <h1>Missão</h1>
       </div>

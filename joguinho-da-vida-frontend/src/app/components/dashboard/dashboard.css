@@ -1,30 +1,34 @@
 .info-section {
     display: flex;
     flex-direction: row;
-    width: 100%;
+    width: 98%;
     justify-content: space-around;
     margin-top: 20px;
+    gap: 20px;
+    flex-wrap: wrap;
+    margin: auto;
+    margin-top: 15px;
 }
 
 .nivel-info {
     display: flex;
     justify-content: space-between;
+    flex-wrap: wrap;
 }
 
 .user-opcoes a {
     text-decoration: none;
     color: #203F61;
-    font-size: 36px;
+    font-size: 2rem;
     padding: 10px;
 }
-
 
 .user-status {
     background-color: #F8A22A;
     border-radius: 15px;
-    height: 30vh;
-    padding: 50px 15px 15px 15px;
-    width: 69%;
+    flex: 2;
+    padding: 30px 15px;
+    min-width: 250px;
 }
 
 .user-opcoes {
@@ -32,115 +36,177 @@
     flex-direction: column;
     background-color: #92D8E5;
     border-radius: 15px;
-    height: 30vh;
-    width: 30%;
-    align-items: center;
+    flex: 1;
+    min-width: 200px;
+    padding: 15px;
+    align-items: flex-start;
     justify-content: center;
 }
 
 .user-opcoes hr {
     width: 90%;
-    margin-left: auto;
-    margin-right: auto;
+    margin: 10px auto;
     border: 1px solid #6FCCE8;
 }
 
 .missoes-section {
-    margin: 20px 10px 0 10px;
+    width: 98%;
+    margin: 50px auto;
 }
 
-.missoes-carousel {}
+.missoes-carousel {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 25px;
+    justify-content: center;
+}
 
 .missao-card-content img {
-    width: 50px;
-    height: 50px;
-    margin-bottom: 0px;
-
+    width: 40px;
+    height: 40px;
 }
 
 .missao-card-content {
     display: flex;
     align-items: center;
     gap: 15px;
-    margin-left: 15px;
-    margin-bottom: 15px;
+    margin: 15px;
 }
 
 .missao-card {
     background-color: #FFF6DB;
     border-radius: 15px;
-    /* height: 30vh; */
-    width: 15vw;
+    width: clamp(250px, 20vw, 320px);
     color: #203F61;
+    flex: 0 1 auto;
 }
 
 .missao-card-header {
     background-color: #FECE67;
     border-radius: 15px 15px 0 0;
     text-align: center;
-
-
+    padding: 10px;
 }
 
 .recompensa-container {
     display: flex;
     flex-direction: column;
-    align-items: baseline;
+    align-items: flex-start;
+    margin: 10px;
 }
+
 .recompensa-container span {
-    font-size: 25px;
+    font-size: 1.2rem;
     font-weight: bold;
 }
 
 .missao-card-header h1 {
-    margin-top: 0px;
-    border-radius: 15px;
-    font-size: 32px;
+    margin: 0;
+    font-size: 1.5rem;
 }
 
 .missao-card-body {
-    margin-left: 15px;
-}
-
-.missao-card-body h2 {
-    font-size: 25px;
-}
-
-.missao-card-body p {
-    font-size: 16px;
-}
-
-.mission-card-validade {
-    margin-left: 15px;
-    display: flex;
-    align-items: center;
-}
-.validade-data-container{
-    display: flex;
-    flex-direction: column;
     margin: 15px;
 }
 
+.missao-card-body h2 {
+    font-size: 1.2rem;
+}
+
+.missao-card-body p {
+    font-size: 1rem;
+}
+
+.mission-card-validade {
+    margin: 15px;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.validade-data-container {
+    display: flex;
+    flex-direction: column;
+    margin: 10px;
+}
+
 .missao-card-actions {
-    margin-top: 25px;
-    margin-left: 0px;
+    margin: 20px 0;
     display: flex;
     justify-content: space-around;
     align-items: center;
-    padding-bottom: 15px;
-    margin-bottom: 25px;
+    gap: 10px;
+    flex-wrap: wrap;
 }
+
+.btn-aceitar-missao,
+.btn-recusar-missao {
+    border-radius: 15px;
+    padding: 10px 20px;
+    cursor: pointer;
+    border: none;
+    font-size: 1rem;
+}
+
 .btn-aceitar-missao {
     background-color: #4CAF50;
-    border-radius: 15px;
+    color: white;
 }
-.btn-recusar-missao{
+
+.btn-recusar-missao {
     background-color: #FFEB3B;
-    border-radius: 15px;
 }
+
 .btn-aceitar-missao:hover {
     background-color: #45a049;
 }
-.btn-recusar-missao:hover{
+
+.btn-recusar-missao:hover {
     background-color: #fdd835;
+}
+
+/* ----------- RESPONSIVIDADE ----------- */
+
+/* Telas médias */
+@media (max-width: 1024px) {
+    .info-section {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .user-status,
+    .user-opcoes {
+        width: 90%;
+    }
+
+    .user-opcoes a {
+        font-size: 28px;
+    }
+}
+
+/* Telas pequenas */
+@media (max-width: 600px) {
+    .user-opcoes a {
+        font-size: 22px;
+    }
+
+    .missoes-section {
+        margin: 20px 10px;
+    }
+
+    .missao-card {
+        width: 100%;
+    }
+
+    .missao-card-header h1 {
+        font-size: 1.2rem;
+    }
+
+    .missao-card-body h2 {
+        font-size: 1rem;
+    }
+
+    .missao-card-body p {
+        font-size: 0.9rem;
+    }
 }
