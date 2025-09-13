@@ -1,5 +1,5 @@
-import { CommonModule } from '@angular/common';
-import { Component, inject, Injectable } from '@angular/core';
+import { CommonModule, NgIf } from '@angular/common';
+import { AfterViewInit, Component, ElementRef, HostListener, inject, Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { OidcSecurityService } from 'angular-auth-oidc-client';
 import { UserService } from '../../services/user-service';
@@ -10,13 +10,13 @@ import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 
 @Component({
   selector: 'app-login',
-  imports: [CommonModule, MatSlideToggleModule,],
+  imports: [CommonModule, MatSlideToggleModule],
   templateUrl: './login.html',
   styleUrl: './login.css'
 })
-export class Login {
+export class Login implements AfterViewInit {
 
-  constructor(private router: Router,
+  constructor(private router: Router, private el: ElementRef,
     private userService: UserService) { }
 
   private readonly oidcSecurityService = inject(OidcSecurityService);
@@ -26,6 +26,16 @@ export class Login {
   userData$ = this.oidcSecurityService.userData$;
 
   isAuthenticated = false;
+
+  layers!: NodeListOf<HTMLElement>;
+
+  // posição do mouse
+  targetX = 0;
+  targetY = 0;
+
+  // posição atual suavizada
+  currentX = 0;
+  currentY = 0;
 
   ngOnInit(): void {
     this.oidcSecurityService.userData$.subscribe((userData) => {
@@ -48,6 +58,40 @@ export class Login {
       }
     );
   }
+  ngAfterViewInit() {
+    this.layers = this.el.nativeElement.querySelectorAll('.parallax-layer');
+    this.animate();
+  }
+
+  @HostListener('mousemove', ['$event'])
+  onMouseMove(event: MouseEvent) {
+    const { innerWidth, innerHeight } = window;
+    const mouseX = event.clientX - innerWidth / 2;
+    const mouseY = event.clientY - innerHeight / 2;
+
+    // alvo que o movimento deve seguir
+    this.targetX = (mouseX / innerWidth) * 2;
+    this.targetY = (mouseY / innerHeight) * 2;
+  }
+
+  animate() {
+    // suavização (0.05 = mais lento, 0.2 = mais rápido)
+    this.currentX += (this.targetX - this.currentX) * 0.05;
+    this.currentY += (this.targetY - this.currentY) * 0.05;
+
+    // aplica transform em cada camada
+    this.layers.forEach((layer: HTMLElement) => {
+      const depth = parseFloat(layer.getAttribute('data-depth') || '0');
+      const moveX = this.currentX * depth * 30;
+      const moveY = this.currentY * depth * 10;
+
+      layer.style.transform = `translate(calc(${moveX}px - 50%), ${moveY}px) scale(1.1)`;
+    });
+
+    requestAnimationFrame(() => this.animate());
+  }
+
+
 
   login(): void {
     this.oidcSecurityService.authorize();
@@ -76,7 +120,7 @@ export class Login {
     window.location.href =
       `https://us-east-183ju4bbly.auth.us-east-1.amazoncognito.com/logout?client_id=${clientId}&logout_uri=${logoutUri}`;
 
-    
+
   }
 
 

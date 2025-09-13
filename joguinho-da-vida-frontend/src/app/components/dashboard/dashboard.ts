@@ -16,10 +16,12 @@ import { MatIconModule } from '@angular/material/icon';
 export class Dashboard {
   private loginService: Login;
   user:any;
+  missoes: any
 
   constructor(loginService: Login, private userService: UserService) {
     this.loginService = loginService;
     this.user = userService.getUserData();
+   this.missoes = [1, 2, 3, 4, 5]; //apagar depois
   }
 
   //usar no futuro header

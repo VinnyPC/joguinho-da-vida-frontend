@@ -24,8 +24,8 @@
 
       <mat-progress-bar
         mode="determinate"
-        value="100"
-        style="margin-top: 35px; width: 100%"
+        value="50"
+        style="margin-top: 10px; width: 100%"
       ></mat-progress-bar>
     </div>
   </div>
@@ -40,7 +40,7 @@
 
 <section class="missoes-section">
   <div class="missoes-carousel">
-    <div class="missao-card" style="border: 1px solid red">
+    <div class="missao-card" *ngFor="let missao of [1, 2, 3, 4, 5]">
       <div class="missao-card-header">
         <h1>Missão</h1>
       </div>

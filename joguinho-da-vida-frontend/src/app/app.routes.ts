@@ -7,7 +7,7 @@ export const routes: Routes = [
     {
         path: 'dashboard',
         component: Dashboard,
-        canActivate: [authGuard], // <-- rota protegida
+        canActivate: [authGuard],
 
     },
     {
