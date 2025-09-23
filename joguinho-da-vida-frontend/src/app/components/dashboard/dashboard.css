@@ -1,13 +1,23 @@
+body {
+    background: linear-gradient(135deg, #d0f4f7, #e0ffe7, #b2f0ff);
+    font-family: 'Segoe UI', Roboto, sans-serif;
+    color: #0a1f29;
+    min-height: 100vh;
+    margin: 0;
+    padding: 0;
+    background-attachment: fixed;
+    background-size: cover;
+}
+
+/* ----------- INFO SECTION ----------- */
 .info-section {
     display: flex;
     flex-direction: row;
     width: 98%;
     justify-content: space-around;
-    margin-top: 20px;
+    margin: 20px auto;
     gap: 20px;
     flex-wrap: wrap;
-    margin: auto;
-    margin-top: 15px;
 }
 
 .nivel-info {
@@ -16,158 +26,139 @@
     flex-wrap: wrap;
 }
 
-.user-opcoes a {
-    text-decoration: none;
-    color: #203F61;
-    font-size: 2rem;
-    padding: 10px;
-}
-
 .user-status {
-    background-color: #F8A22A;
-    border-radius: 15px;
+    background: rgba(16, 185, 129, 0.75);
+    backdrop-filter: blur(12px);
+    border-radius: 20px;
     flex: 2;
-    padding: 30px 15px;
+    padding: 30px 20px;
     min-width: 250px;
+    color: white;
+    box-shadow: 0 8px 20px rgba(0, 255, 170, 0.25);
+    border: 1px solid rgba(255, 255, 255, 0.25);
 }
 
 .user-opcoes {
     display: flex;
     flex-direction: column;
-    background-color: #92D8E5;
-    border-radius: 15px;
+    background: rgba(224, 242, 254, 0.65);
+    backdrop-filter: blur(15px);
+    border-radius: 20px;
     flex: 1;
     min-width: 200px;
-    padding: 15px;
+    padding: 20px;
     align-items: flex-start;
     justify-content: center;
+    box-shadow: 0 8px 18px rgba(0, 180, 255, 0.25);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.user-opcoes a {
+    text-decoration: none;
+    color: #004aad;
+    font-size: 1.4rem;
+    padding: 8px;
+    transition: all 0.3s ease;
+}
+
+.user-opcoes a:hover {
+    color: #0ea5e9;
+    text-shadow: 0 0 8px rgba(14, 165, 233, 0.6);
 }
 
 .user-opcoes hr {
     width: 90%;
     margin: 10px auto;
-    border: 1px solid #6FCCE8;
+    border: 1px solid rgba(186, 230, 253, 0.6);
 }
 
+/* ----------- MISSÕES SECTION ----------- */
 .missoes-section {
     width: 98%;
     margin: 50px auto;
 }
 
-.missoes-carousel {
+.missoes-card-container {
     display: flex;
+    justify-content: space-between;
     flex-wrap: wrap;
-    gap: 25px;
-    justify-content: center;
-}
-
-.missao-card-content img {
-    width: 40px;
-    height: 40px;
-}
-
-.missao-card-content {
-    display: flex;
-    align-items: center;
-    gap: 15px;
-    margin: 15px;
+    gap: 20px;
 }
 
 .missao-card {
-    background-color: #FFF6DB;
-    border-radius: 15px;
-    width: clamp(250px, 20vw, 320px);
-    color: #203F61;
+    background: rgba(255, 255, 255, 0.65);
+    backdrop-filter: blur(10px);
+    border-radius: 18px;
+    width: 24%;
+    color: #0a1f29;
     flex: 0 1 auto;
+    padding: 20px;
+    box-shadow: 0 6px 14px rgba(0, 0, 0, 0.1), 0 0 12px rgba(0, 200, 255, 0.15);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
 
-.missao-card-header {
-    background-color: #FECE67;
-    border-radius: 15px 15px 0 0;
-    text-align: center;
-    padding: 10px;
+.missao-card:hover {
+    transform: translateY(-6px) scale(1.02);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.18), 0 0 18px rgba(0, 255, 170, 0.3);
 }
 
-.recompensa-container {
+.mission-card-details {
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
-    margin: 10px;
+    gap: 6px;
+    margin: 10px 0;
+    padding: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.35);
+    border-radius: 12px;
+    background: rgba(249, 250, 251, 0.65);
+    transition: all 0.3s ease-in-out;
 }
 
-.recompensa-container span {
-    font-size: 1.2rem;
-    font-weight: bold;
+.mission-card-details:hover {
+    cursor: pointer;
+    transform: scale(1.05);
+    background: rgba(224, 242, 254, 0.8);
+    border-color: #38bdf8;
+    box-shadow: 0 0 12px rgba(56, 189, 248, 0.4);
 }
 
-.missao-card-header h1 {
-    margin: 0;
-    font-size: 1.5rem;
-}
-
-.missao-card-body {
-    margin: 15px;
-}
-
-.missao-card-body h2 {
-    font-size: 1.2rem;
-}
-
-.missao-card-body p {
-    font-size: 1rem;
-}
-
-.mission-card-validade {
-    margin: 15px;
-    display: flex;
-    align-items: center;
-    flex-wrap: wrap;
-}
-
-.validade-data-container {
-    display: flex;
-    flex-direction: column;
-    margin: 10px;
-}
-
-.missao-card-actions {
-    margin: 20px 0;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    gap: 10px;
-    flex-wrap: wrap;
-}
-
-.btn-aceitar-missao,
-.btn-recusar-missao {
+/* ----------- BOTÕES ----------- */
+.btn-aceitar-missao {
+    background: linear-gradient(135deg, #10B981, #34D399);
+    color: white;
     border-radius: 15px;
     padding: 10px 20px;
-    cursor: pointer;
     border: none;
     font-size: 1rem;
-}
-
-.btn-aceitar-missao {
-    background-color: #4CAF50;
-    color: white;
-}
-
-.btn-recusar-missao {
-    background-color: #FFEB3B;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 0 12px rgba(16, 185, 129, 0.4);
 }
 
 .btn-aceitar-missao:hover {
-    background-color: #45a049;
+    background: linear-gradient(135deg, #059669, #10B981);
+    box-shadow: 0 0 18px rgba(16, 185, 129, 0.6);
+}
+
+.btn-recusar-missao {
+    background: linear-gradient(135deg, #F59E0B, #FBBF24);
+    color: white;
+    border-radius: 15px;
+    padding: 10px 20px;
+    border: none;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 0 12px rgba(245, 158, 11, 0.4);
 }
 
 .btn-recusar-missao:hover {
-    background-color: #fdd835;
+    background: linear-gradient(135deg, #D97706, #F59E0B);
+    box-shadow: 0 0 18px rgba(245, 158, 11, 0.6);
 }
 
 /* ----------- RESPONSIVIDADE ----------- */
-
-/* Telas médias */
 @media (max-width: 1024px) {
     .info-section {
         flex-direction: column;
@@ -180,33 +171,14 @@
     }
 
     .user-opcoes a {
-        font-size: 28px;
-    }
-}
-
-/* Telas pequenas */
-@media (max-width: 600px) {
-    .user-opcoes a {
-        font-size: 22px;
+        font-size: 1.2rem;
     }
 
-    .missoes-section {
-        margin: 20px 10px;
+    .missoes-card-container {
+        flex-direction: column;
     }
 
     .missao-card {
         width: 100%;
-    }
-
-    .missao-card-header h1 {
-        font-size: 1.2rem;
-    }
-
-    .missao-card-body h2 {
-        font-size: 1rem;
-    }
-
-    .missao-card-body p {
-        font-size: 0.9rem;
     }
 }

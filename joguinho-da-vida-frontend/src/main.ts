@@ -14,6 +14,7 @@ import { provideRouter } from '@angular/router';
 
 bootstrapApplication(App, {
   providers: [
+    
     provideRouter(routes),
     provideHttpClient(),
     provideAuth({

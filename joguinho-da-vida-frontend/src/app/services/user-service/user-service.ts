@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 
 @Injectable({
-  providedIn: 'root', // disponibiliza globalmente
+  providedIn: 'root',
 })
 export class UserService {
   private _userData: any = null;

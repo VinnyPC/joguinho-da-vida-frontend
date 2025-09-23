@@ -1,0 +1,31 @@
+<h2 mat-dialog-title class="frutiger-title">Criar nova missão</h2>
+
+<mat-dialog-content>
+  <form class="frutiger-form" [formGroup]="missaoForm">
+    <mat-form-field appearance="fill" class="frutiger-input">
+      <mat-label>Nome</mat-label>
+      <input matInput formControlName="nome" />
+    </mat-form-field>
+
+    <mat-form-field appearance="fill" class="frutiger-input">
+      <mat-label>Descrição</mat-label>
+      <textarea matInput formControlName="descricao"></textarea>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill" class="frutiger-input">
+      <mat-label>Dificuldade</mat-label>
+      <mat-select formControlName="dificuldade">
+        <mat-option *ngFor="let dificuldade of dificuldades" [value]="dificuldade">
+          {{ dificuldade }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+  </form>
+</mat-dialog-content>
+
+<mat-dialog-actions align="end" class="frutiger-actions">
+  <button mat-button class="frutiger-cancel" (click)="close()">Cancelar</button>
+  <button mat-flat-button color="primary" class="frutiger-save" (click)="save()" [disabled]="missaoForm.invalid">
+    Salvar
+  </button>
+</mat-dialog-actions>

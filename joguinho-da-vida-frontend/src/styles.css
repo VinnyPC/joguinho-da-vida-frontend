@@ -8,6 +8,26 @@ Document
 /**
 Use a better box model (opinionated).
 */
+.mat-dialog-container {
+    border-radius: 16px;
+    background: rgba(255, 255, 255, 0.95);
+}
+
+.mat-form-field-appearance-fill .mat-form-field-flex {
+    background: rgba(245, 245, 245, 0.8);
+    border-radius: 12px;
+    padding: 8px 12px;
+}
+
+.mat-flat-button {
+    border-radius: 12px;
+    background: linear-gradient(135deg, #6fc3ff, #3a8dff);
+    color: white;
+}
+
+.mat-flat-button:hover {
+    box-shadow: 0 4px 16px rgba(58, 141, 255, 0.4);
+}
 * {
     font-family: 'K2D', sans-serif ;
 }

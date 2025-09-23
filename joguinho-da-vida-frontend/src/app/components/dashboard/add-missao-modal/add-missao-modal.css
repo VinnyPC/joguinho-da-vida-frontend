@@ -1,0 +1,49 @@
+/* Frutiger Aero Theme */
+::ng-deep .mat-dialog-container {
+    border-radius: 16px;
+    background: rgba(255, 255, 255, 0.95);
+    padding: 24px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+    font-family: 'Segoe UI', 'Frutiger', 'Helvetica Neue', sans-serif;
+}
+
+.frutiger-title {
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 16px;
+}
+
+.frutiger-form {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.frutiger-input {
+    background: rgba(245, 245, 245, 0.8);
+    border-radius: 12px;
+}
+
+.mat-form-field-appearance-fill .mat-form-field-flex {
+    padding: 8px 12px;
+}
+
+.frutiger-actions {
+    margin-top: 16px;
+}
+
+.frutiger-cancel {
+    color: #666;
+}
+
+.frutiger-save {
+    background: linear-gradient(135deg, #6fc3ff, #3a8dff);
+    color: white;
+    border-radius: 12px;
+    transition: all 0.3s ease;
+}
+
+.frutiger-save:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 16px rgba(58, 141, 255, 0.4);
+}

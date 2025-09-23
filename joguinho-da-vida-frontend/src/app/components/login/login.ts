@@ -2,7 +2,7 @@ import { CommonModule, NgIf } from '@angular/common';
 import { AfterViewInit, Component, ElementRef, HostListener, inject, Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { OidcSecurityService } from 'angular-auth-oidc-client';
-import { UserService } from '../../services/user-service';
+import { UserService } from '../../services/user-service/user-service';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 @Injectable({
   providedIn: 'root', // ✅ disponibiliza globalmente
@@ -41,7 +41,7 @@ export class Login implements AfterViewInit {
     this.oidcSecurityService.userData$.subscribe((userData) => {
       if (userData) {
         console.log('Dados do usuário:', userData);
-        this.userService.setUserData(userData); // salva no serviço global
+        this.userService.setUserData(userData); 
       }
     });
 

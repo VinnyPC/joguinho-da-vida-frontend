@@ -6,7 +6,7 @@
       <div class="nivel-info">
         <div style="display: flex; flex-direction: column">
           <span style="font-size: 36px">Nível</span>
-          <span style="font-size: 128px">5</span>
+          <span style="font-size: 128px">{{nivelAtual}}</span>
         </div>
         <div
           style="
@@ -16,65 +16,70 @@
             justify-content: space-around;
           "
         >
-          <span>Missões ativas: 100</span>
-          <span>Missões concluídas: 250</span>
-          <span>XP: 599/1000</span>
+          <span>Missões ativas: {{ missoesDoUsuario.length }}</span>
+          <span>Missões concluídas: {{missoesConcluidas.length}}</span>
+          <span>XP: {{xpAtual}}/{{xpNecessarioProximo}}</span>
         </div>
       </div>
 
       <mat-progress-bar
         mode="determinate"
-        value="50"
+        [value]="(xpAtual / xpNecessarioProximo) * 100"
         style="margin-top: 10px; width: 100%; height: 15px"
       ></mat-progress-bar>
     </div>
   </div>
   <div class="user-opcoes">
-    <div><span class="material-symbols-outlined"> strategy </span><a href="#">Missões</a></div>
-     <hr />
-    <div> <span class="material-symbols-outlined"> person </span><a href="#">Perfil</a></div>
-        <hr />
-    <div> <span class="material-symbols-outlined"> storefront </span><a href="#">Loja</a></div>
-    
-   
-   
-
-   
+    <div><span class="material-symbols-outlined"> add </span><a (click)="toOpenNewMissionModal()">Criar nova missão</a></div>
+    <hr />
+    <div><span class="material-symbols-outlined"> person </span><a >Perfil</a></div>
+    <hr />
+    <div><span class="material-symbols-outlined"> license </span><a href="#">Badges</a></div>
   </div>
 </section>
 
 <section class="missoes-section">
-  <h1 style="color: #203f61">Missões</h1>
-  <div class="missoes-carousel">
-    <div class="missao-card" *ngFor="let missao of [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]">
-      <div class="missao-card-header">
-        <h1>Missão</h1>
-      </div>
-      <div class="missao-card-body">
-        <h2>Objetivo de estudo</h2>
-        <p>Leia um capítulo do livro de história</p>
-      </div>
+  <h1>Missões</h1>
+  <div class="missoes-card-container">
+    <div class="missoes-ativas-card missao-card">
+      <h2>Ativas</h2>
+      <div (click)="toOpenMissionDetails()" class="mission-card-details" *ngFor="let missao of missoesDoUsuario">
+        <div style="display: flex; justify-content: space-between; align-items: center;">
+                  <h3>{{ missao.nome }}</h3>
+                  <h2>{{missao.dificuldade}}</h2>
+        </div>
 
-      <div class="missao-card-content">
-        <img src="../../../assets/images/mission-card-icon.png" alt="icone de estrela" />
-        <div class="recompensa-container">
-          <span>Recompensa:</span>
-          <span>+100 XP</span>
-        </div>
-      </div>
-      <div class="mission-card-validade">
-        <div>
-          <img src="../../../assets/images/calendar.png" alt="calendario" />
-        </div>
-        <div class="validade-data-container">
-          <span>Válido até:</span>
-          <span>31/08/2025</span>
-        </div>
-      </div>
-      <div class="missao-card-actions">
-        <button mat-button class="btn-aceitar-missao">Aceitar</button>
-        <button mat-button class="btn-recusar-missao">Recusar</button>
+        <span>{{ missao.descricao }}</span>
+        <h3>{{ missao.pontos }}</h3>
+        <span>Desde {{ missao['data-criacao'] }}</span>
       </div>
     </div>
+    <div class="missoes-ativas-card missao-card">
+      <h2>Vencidas</h2>
+      <div class="mission-card-details" *ngFor="let missao of missoesVencidas">
+        <h3>{{ missao.nome }}</h3>
+        <span>{{ missao.descricao }}</span>
+        <h3>{{ missao.pontos }}</h3>
+        <span>Desde {{ missao['data-criacao'] }}</span>
+      </div>
+    </div>
+    <div class="missoes-ativas-card missao-card">
+      <h2>Concluídas</h2>
+      <div class="mission-card-details" *ngFor="let missao of missoesConcluidas">
+        <h3>{{ missao.nome }}</h3>
+        <span>{{ missao.descricao }}</span>
+        <h3>{{ missao.pontos }}</h3>
+        <span>Desde {{ missao['data-criacao'] }}</span>
+      </div>
+    </div>
+    <div class="missoes-favoritas-card missao-card">
+      <h2>Favoritas</h2>
+      <div class="divider"></div>
+      <ul *ngFor="let missao of missoesFavoritas">
+        <li>{{ missao.nome }}</li>
+      </ul>
+    </div>
   </div>
+
+  
 </section>
